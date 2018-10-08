@@ -4,7 +4,7 @@
 
   <head>
 
-  
+
 
     <meta charset="utf-8">
 
@@ -16,13 +16,13 @@
 
     <title>:: Picxa | Contact ::</title>
 
-	
 
-    
+
+
 
     <!-- Normalize -->
 
-    <link rel="stylesheet" href="css/assets/normalize.css" type="text/css"> 
+    <link rel="stylesheet" href="css/assets/normalize.css" type="text/css">
 
     <!-- Bootstrap -->
 
@@ -52,7 +52,7 @@
 
  	<script src="js/assets/modernizr-2.8.3.min.js" type="text/javascript"></script>
 
-		
+
 
 
 
@@ -60,9 +60,9 @@
 
   <body>
 
-  	
 
-			
+
+
 
             <!-- header -->
 
@@ -183,37 +183,21 @@
                                 <!-- contact-form -->
 
                                 <div class="contact-form">
-
                                     <div id="message"></div>
-
-                                    <form method="post" action="php/contactfrom.php" name="cform" id="cform">
-
+                                    <form action="" name="cform" id="cform">
                                     	<label>Whats your name <span>*</span>
-
                                         	<input  name="name" id="name" type="text">
-
                                         </label>
-
                                         <label>Whats your email <span>*</span>
-
                                         	<input  name="email" id="email" type="email">
-
                                         </label>
-
                                         <div class="clearfix"></div>
-
                                         <label>Whats in your mind
-
                                         	<textarea name="comments" id="comments" cols="" rows=""></textarea>
-
                                         </label>
-
                                         <div class="clearfix"></div>
-
-                                        <input name="" type="submit" value="Send Mail">
-
+                                        <input name="" type="submit" value="Send Mail" id="submit-form">
                                     	<div id="simple-msg"></div>
-
                                     </form>
 
                                 </div>
@@ -315,7 +299,7 @@
 
         <!-- footer -->
 
-   
+
 
 
 
@@ -329,7 +313,7 @@
 
     <script src="js/assets/bootstrap.min.js" type="text/javascript"></script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> 
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
 	<script src="js/maps.js" type="text/javascript"></script>
 
@@ -340,6 +324,26 @@
 	<script src="js/main.js" type="text/javascript"></script>
 
 	<script src="js/jquery.nicescroll.min.js" type="text/javascript"></script>
+
+  <script>
+
+  var $form = $('form#cform'),
+      url = 'https://script.google.com/macros/s/AKfycby1KZ3tdMoBn_2-huv8boL-JERKn20AP7n7EOJnB96RYFvHFcTV/exec';
+
+  $('#submit-form').on('click', function(e) {
+    e.preventDefault();
+    var jqxhr = $.ajax({
+      url: url,
+      method: "GET",
+      dataType: "json",
+      data: $form.serializeObject()
+    }).success(
+      alert("Ваше сообщение принято");
+    );
+  })
+
+  </script>
+
 
   </body>
 

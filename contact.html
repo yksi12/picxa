@@ -336,7 +336,7 @@
       url: url,
       method: "GET",
       dataType: "json",
-      data: $form.serializeObject()
+      data: $form.serialize()
     }).success(
       alert("Ваше сообщение принято")
     );
